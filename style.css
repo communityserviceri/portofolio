@@ -628,3 +628,42 @@ body{
   transform: translateY(-3px);
   box-shadow: 0 6px 30px rgba(0,0,0,0.1), var(--glow-soft);
 }
+/* --- ENHANCEMENT: Neon Logo in Header --- */
+
+/* Efek Glow */
+.neon-logo {
+    font-size: 1.15rem; /* Ukuran sedikit lebih besar */
+    font-weight: 700;
+    color: var(--color-lavender); /* Warna teks putih/terang */
+    
+    /* Efek Neon Glow Biru */
+    text-shadow: 
+        0 0 4px var(--color-lavender), /* Glow putih kecil */
+        0 0 10px var(--color-accent),  /* Glow biru muda */
+        0 0 20px var(--color-mauve);   /* Glow biru utama */
+    
+    /* Tambahkan animasi berkedip halus */
+    animation: neon-flicker 3s ease-in-out infinite alternate;
+    transition: text-shadow 0.3s ease;
+}
+
+/* Animasi berkedip (opsional, untuk sentuhan cyberpunk) */
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 4px var(--color-lavender), 
+            0 0 10px var(--color-accent), 
+            0 0 20px var(--color-mauve);
+    }
+    20%, 24%, 55% {
+        /* Sedikit redup */
+        text-shadow: none;
+    }
+}
+
+/* Dalam mode terang, kurangi intensitas glow agar tetap terbaca */
+:root.light-mode .neon-logo {
+    text-shadow: 
+        0 0 2px var(--color-mauve),
+        0 0 5px rgba(0, 123, 255, 0.4);
+}
