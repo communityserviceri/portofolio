@@ -2,7 +2,7 @@
    - FIX: Dual Observer (Fade-in + Stagger) to prevent blank page
    - FIX: Restore Carousel Logic for gallery.html
    - FIX: Dynamic Looping Typer Logic
-   - ADD: Lightbox for Gallery with Title
+   - FIX: Lightbox now handles both JPG/PNG and PDF (using iframe)
 */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (this.isDeleting && this.charIndex === 0) {
         this.isDeleting = false;
         this.loopIndex++;
-        delay = 500; // Pause before starting next role
+        delay = 500;
       }
 
       setTimeout(() => this._tick(), delay);
@@ -67,16 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Tambahkan kelas 'active' pada elemen utama
         entry.target.classList.add('active'); 
         
-        // Cek jika elemen memiliki children dengan kelas reveal-item (untuk stagger)
         const staggerItems = entry.target.querySelectorAll('.reveal-item, .card, .skill, .timeline-card, .contact-card');
         if (staggerItems.length > 0) {
             staggerItems.forEach((item, index) => {
                 setTimeout(() => {
                     item.classList.add('active');
-                }, index * 120); // Delay 120ms per item
+                }, index * 120);
             });
         }
         observer.unobserve(entry.target);
@@ -87,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.1
   });
 
-  // Amati semua elemen yang memiliki kelas .reveal
   document.querySelectorAll('.reveal').forEach(el => {
     observer.observe(el);
   });
@@ -136,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==================================================
-     FUNGSI CAROUSEL (DIPERLUKAN UNTUK GALLERY.HTML)
+     FUNGSI CAROUSEL
      ================================================== */
   const carousel = document.querySelector('.gallery-carousel');
   if (carousel) {
@@ -167,27 +164,57 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('mouseleave', () => autoplay = setInterval(() => goTo(idx + 1), 3800));
   }
 
-  /* LIGHTBOX (Diperbarui untuk mendukung data-title) */
+  /* ==================================================
+     LIGHTBOX (FIXED FOR PDF/IMAGE)
+     ================================================== */
   const thumbs = document.querySelectorAll('.thumb, .gallery-item');
   const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightbox-img');
+  const lbInner = document.querySelector('.lightbox-inner');
   const lbClose = document.querySelector('.close-lightbox');
   const lbCaption = document.getElementById('lightbox-caption'); 
 
   thumbs.forEach(t => t.addEventListener('click', (e) => {
     e.preventDefault();
-    // Ambil data-full, jika tidak ada, gunakan src dari img di dalamnya.
-    const imgSrc = t.getAttribute('data-full') || (t.querySelector('img') ? t.querySelector('img').src : t.src);
-    // Ambil judul dari data-title
+    const mediaSrc = t.getAttribute('data-full');
     const imgCaption = t.getAttribute('data-title') || 'Sertifikat';
     
-    lbImg.src = imgSrc;
-    if(lbCaption) lbCaption.textContent = imgCaption;
+    // Hapus semua konten media lama di dalam lightbox-inner (kecuali tombol tutup dan caption)
+    Array.from(lbInner.children).forEach(child => {
+        if (child.id === 'lightbox-img' || child.id === 'lightbox-pdf' || child.tagName === 'IFRAME') {
+            child.remove();
+        }
+    });
 
-    if (lightbox) { 
-      lightbox.classList.add('open'); 
-      lightbox.style.display = 'flex'; 
-      lightbox.setAttribute('aria-hidden','false'); 
+    if (mediaSrc) {
+        let mediaElement;
+        
+        if (mediaSrc.toLowerCase().endsWith('.pdf')) {
+            // Jika PDF, gunakan iFrame
+            mediaElement = document.createElement('iframe');
+            mediaElement.id = 'lightbox-pdf';
+            mediaElement.src = mediaSrc + '#toolbar=0&navpanes=0'; // Menyembunyikan toolbar/nav
+            mediaElement.title = imgCaption;
+            mediaElement.style.width = '100%';
+            mediaElement.style.height = '100%';
+            mediaElement.style.border = 'none';
+        } else {
+            // Jika Gambar, gunakan Img
+            mediaElement = document.createElement('img');
+            mediaElement.id = 'lightbox-img';
+            mediaElement.src = mediaSrc;
+            mediaElement.alt = imgCaption;
+        }
+
+        // Sisipkan mediaElement sebelum caption
+        lbInner.insertBefore(mediaElement, lbCaption.parentNode);
+        
+        lbCaption.textContent = imgCaption;
+
+        if (lightbox) { 
+          lightbox.classList.add('open'); 
+          lightbox.style.display = 'flex'; 
+          lightbox.setAttribute('aria-hidden','false'); 
+        }
     }
   }));
 
