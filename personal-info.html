@@ -28,53 +28,57 @@
       <button id="theme-toggle" aria-label="Toggle theme" class="theme-btn" title="Toggle theme">
         <i class="fas fa-moon"></i>
       </button>
-      <div class="mini-profile" title="Profile mini">
-        <img src="assets/foto/profile.jpg" alt="Bima mini" onerror="this.style.opacity=.4">
-      </div>
     </div>
   </header>
 
-  <main class="container reveal">
-    <h2 class="reveal-item"><i class="fas fa-id-card"></i> Profil Lengkap</h2>
-    <section class="profile-card card reveal-item">
-      <div class="profile-left">
-        <div class="avatar-wrap tilt-3d" data-tilt>
-          <img src="assets/foto/profile.jpg" alt="Foto Bima Adhitya Susilo Putra" class="avatar">
+  <main>
+    <section id="profile" class="hero container reveal">
+      <div class="profile-card card tilt-3d">
+        <div class="profile-left">
+          <div class="avatar-wrap">
+            <img src="assets/foto/profile.jpg" alt="Bima Adhitya" class="avatar">
+          </div>
+          
+          <div class="personal-quick">
+            <h2>Bima Adhitya Susilo Putra</h2>
+            <p>Fresh Graduate Teknik Informatika</p>
+            <hr style="border-color: rgba(255, 255, 255, 0.05); margin: 15px 0;">
+            <p><i class="fas fa-map-marker-alt"></i> Garut, Indonesia</p>
+            <p><i class="fas fa-phone"></i> 089634568406</p>
+            <p><i class="fas fa-envelope"></i> bimaasp16@gmail.com</p>
+          </div>
         </div>
+        
+        <div class="profile-right">
+          
+          <div class="profile-detail-section card tilt-3d reveal-item">
+            <h3><i class="fas fa-user-circle"></i> Tentang Saya</h3>
+            <p>Fresh Graduate Teknik Informatika dengan spesialisasi di bidang Android Development dan Internet of Things (IoT). Memiliki pengalaman praktis 3+ tahun di bidang IT Support dan jaringan. Saya terbiasa bekerja secara rapi, cepat, dan siap berkolaborasi dalam tim untuk memberikan solusi yang efektif. Saya antusias dalam mengintegrasikan sistem aplikasi mobile dengan infrastruktur backend dan perangkat keras IoT.</p>
+          </div>
+          
+          <div class="profile-detail-section card tilt-3d reveal-item">
+            <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+            <p class="education-info"><strong>Teknik Informatika</strong><br>Universitas Budi Luhur (2019 - 2024). IPK: 3.25</p>
+          </div>
 
-        <div class="personal-quick">
-          <p><i class="fas fa-birthday-cake"></i> 16 Juni 2001</p>
-          <p><i class="fas fa-map-marker-alt"></i> Garut, Jawa Barat</p>
-          <p><i class="fas fa-envelope"></i> bimaasp16@gmail.com</p>
+          <div class="profile-detail-section card tilt-3d reveal-item">
+            <h3><i class="fas fa-tools"></i> Keahlian Utama</h3>
+            <div class="skill-badges">
+              <span class="badge">IT Support</span>
+              <span class="badge">Asset Management</span>
+              <span class="badge">Firebase</span>
+              <span class="badge">NodeMCU / ESP8266</span>
+              <span class="badge">Networking</span>
+              <span class="badge">Embedded Systems</span>
+            </div>
+          </div>
+
+          <div class="profile-detail-section card tilt-3d reveal-item">
+            <h3><i class="fas fa-language"></i> Bahasa</h3>
+            <p>Bahasa Indonesia (native), Inggris (aktif), Jepang (dasar)</p>
+          </div>
+
         </div>
-      </div>
-      <div class="profile-right">
-        <h3>Tentang Saya</h3>
-        <p>Saya adalah seorang profesional yang fokus pada bidang IT Support dan Sistem Tertanam (Embedded Systems). Latar belakang pendidikan di Teknik Informatika memberikan saya dasar yang kuat dalam jaringan, pemrograman, dan *troubleshooting* perangkat keras.</p>
-        <p>Saya memiliki minat besar pada teknologi IoT dan telah mengembangkan beberapa proyek kecil menggunakan NodeMCU/ESP8266. Saya selalu mencari peluang untuk mengoptimalkan operasional IT dan mengimplementasikan solusi berbasis teknologi.</p>
-
-        <h3>Link Cepat</h3>
-        <ul class="details-list">
-          <li><i class="fab fa-linkedin"></i> <a class="glass-link" href="https://linkedin.com/in/bima-adhitya-susilo-putra-7928b525a/" target="_blank">LinkedIn Profile</a></li>
-          <li><i class="fas fa-file-pdf"></i> <a class="glass-link" href="assets/CV-Bima.pdf" target="_blank">Unduh CV</a></li>
-          <li><i class="fas fa-external-link-alt"></i> <a class="glass-link" href="https://communityserviceri.github.io/myprofile/profile.html" target="_blank">Old Portfolio</a></li>
-        </ul>
-
-        <h3>Pendidikan</h3>
-        <p><strong>S.Kom — Teknik Informatika</strong><br>Universitas Budi Luhur (2019 - 2024). IPK: 3.25</p>
-
-        <h3>Keahlian Utama</h3>
-        <div class="skill-badges">
-          <span class="badge">IT Support</span>
-          <span class="badge">Asset Management</span>
-          <span class="badge">Firebase</span>
-          <span class="badge">NodeMCU / ESP8266</span>
-          <span class="badge">Networking</span>
-          <span class="badge">Embedded Systems</span>
-        </div>
-
-        <h3>Bahasa</h3>
-        <p>Bahasa Indonesia (native), Inggris (aktif), Jepang (dasar)</p>
       </div>
     </section>
   </main>
@@ -84,21 +88,20 @@
     <div class="footer-inner container">
       <div class="footer-left">
         <div class="brand">© 2025 <strong>Bima Adhitya Susilo Putra</strong></div>
+        <div class="tagline">Modern Tech Blue • Neon Glass UI</div>
       </div>
       <div class="footer-right">
-        <div class="footer-links">
-          <a class="footer-cta" href="https://communityserviceri.github.io/myprofile/profile.html" target="_blank" rel="noopener">
-            <i class="fas fa-external-link-alt"></i> Old Portfolio
-          </a>
-          <a class="footer-cta" href="mailto:bimaasp16@gmail.com">
-            <i class="fas fa-envelope"></i> Email Saya
-          </a>
+        <div class="footer-links footer-social-icons">
+          <a class="footer-cta" href="#" target="_blank" rel="noopener" aria-label="Ikon Linux"><i class="fab fa-linux"></i></a>
+          <a class="footer-cta" href="#" target="_blank" rel="noopener" aria-label="Ikon Windows"><i class="fab fa-windows"></i></a>
+          <a class="footer-cta" href="https://www.instagram.com/hiro.esc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="footer-cta" href="https://www.facebook.com/bima.adhitya1/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a class="footer-cta linkedin-temp" href="https://www.linkedin.com/in/hiro-undefined-b9a1b6333/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 </body>
 </html>
