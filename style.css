@@ -1,6 +1,6 @@
 /* =========================
    Upgrade: Modern Tech Blue Theme
-   Kreator: Gemini (v8 - Contact Layout Fix)
+   Kreator: Hiro (v8 - Contact Layout Fix)
    ========================= */
 
 :root {
@@ -488,4 +488,34 @@ body{
 .glass-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 30px rgba(0,0,0,0.1), var(--glow-soft);
+
+}
+/* === Gaya Baru untuk Ikon Sosial di HERO Section (.social-cta) === */
+.social-cta {
+    display: flex; 
+    gap: 12px; 
+    margin-top: 1.5rem; /* Tambah sedikit jarak dari tombol CTA atas */
+    flex-wrap: wrap; 
+}
+
+.social-cta .glass-btn {
+    /* Mengubah tombol kaca (glass-btn) menjadi ikon persegi yang bersih */
+    padding: 0.8rem; /* Padding lebih besar untuk visual ikon */
+    width: 46px; /* Ukuran tetap untuk ikon */
+    height: 46px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Pastikan tidak ada celah di dalam tombol */
+}
+
+.social-cta .glass-btn i {
+    font-size: 1.4rem; /* Ukuran ikon lebih besar */
+    margin: 0;
+    opacity: 1; /* Pastikan ikon terlihat jelas */
+}
+
+/* Gaya Khusus untuk LinkedIn (Warna Kuning Sementara) */
+.social-cta .linkedin-temp i {
+    color: #FFD700; /* Warna kuning emas (sesuai permintaan) */
 }
