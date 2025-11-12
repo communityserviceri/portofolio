@@ -313,9 +313,20 @@ body{
 .tilt-3d{transform-style:preserve-3d;will-change:transform;transition:transform .12s ease,box-shadow .12s ease}
 .tilt-3d:hover{box-shadow:var(--glow-strong);transform:translateY(-6px) perspective(600px)}
 
-/* Profile */
-.profile-card{display:flex;gap:30px;align-items:flex-start}
-.profile-left{width:320px}
+/* Profile - Perbaikan Layout Enchanted */
+.profile-card {
+    /* GANTI INI DARI: display:flex;gap:30px;align-items:flex-start */
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Kolom Kiri 320px (Sticky), Kanan mengisi sisa */
+    gap: 40px;
+    align-items: flex-start;
+    padding: 3rem; /* Tambah padding di dalam kartu besar */
+}
+.profile-left {
+    width: 100%; /* Agar mengisi kolom grid */
+    position: sticky; /* Agar menempel di samping saat scroll */
+    top: 100px; /* Jarak dari atas */
+}
 .avatar-wrap{width:220px;height:220px;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
 .avatar{width:100%;height:100%;object-fit:cover;display:block}
 .personal-quick p{
@@ -323,11 +334,48 @@ body{
   color: var(--color-text); 
   opacity: .9;
 }
-.details-list{list-style:none;margin-top:.6rem}
+/* Bagian Baru: Detail Section */
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antar kartu detail */
+}
+.profile-detail-section {
+    padding: 1.5rem;
+}
+.profile-detail-section h3 {
+    font-size: 1.4rem;
+    color: var(--color-lavender);
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid var(--color-mantle); 
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.profile-detail-section h3 i {
+    color: var(--color-mauve); 
+    margin-right: 0.6rem;
+    font-size: 1.2em;
+}
+.education-info {
+    margin: 0.5rem 0;
+}
+.education-info strong {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+}
+.skill-badges {
+    /* Pastikan badge berada dalam container flex agar bisa di tengah di mobile */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
 .badge{display:inline-block;padding:.35rem .6rem;border-radius:999px;
   background:linear-gradient(90deg, rgba(0, 169, 255, 0.12), rgba(56, 189, 248, 0.06));
   margin-right:6px;margin-bottom:6px
 }
+
 
 /* Contact Grid */
 .contact-grid {
@@ -415,6 +463,63 @@ body{
 }
 .footer-cta i{animation:neonPulse 3s ease-in-out infinite}
 
+/* === Gaya Baru untuk Ikon Sosial di HERO Section (.social-cta) === */
+.social-cta {
+    display: flex; 
+    gap: 12px; 
+    margin-top: 1.5rem; 
+    flex-wrap: wrap; 
+}
+.social-cta .glass-btn {
+    padding: 0.8rem; 
+    width: 46px; 
+    height: 46px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 0; 
+}
+.social-cta .glass-btn i {
+    font-size: 1.4rem; 
+    margin: 0;
+    opacity: 1; 
+}
+/* Gaya Khusus untuk LinkedIn (Warna Kuning Sementara) */
+.social-cta .linkedin-temp i,
+.footer-social-icons .linkedin-temp i {
+    color: #FFD700; 
+}
+
+/* --- Gaya Baru untuk Ikon Sosial di Footer (.footer-social-icons) --- */
+.footer-social-icons {
+    display: flex;
+    gap: 1.2rem; 
+    align-items: center;
+}
+.footer-social-icons .footer-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    border: none;
+    background: transparent;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.footer-social-icons .footer-cta i {
+    font-size: 1.8rem; 
+    color: var(--color-text); 
+    transition: color 0.2s;
+    /* Menonaktifkan animasi neon pulse agar tidak terlalu ramai di footer */
+    animation: none; 
+}
+.footer-social-icons .footer-cta:hover {
+    transform: translateY(-3px);
+}
+.footer-social-icons .footer-cta:hover i {
+    color: var(--color-mauve); 
+}
+
+
 /* Mobile Navigation */
 #mobile-menu-toggle {
     display: none; 
@@ -452,8 +557,38 @@ body{
   /* Responsive Lama */
   .hero{flex-direction:column}
   .skills-grid{grid-template-columns:1fr}
-  .profile-card{flex-direction:column}
-  .avatar-wrap{width:100%;height:320px}
+  
+  /* Perbaikan Profile Card Mobile */
+  .profile-card {
+        grid-template-columns: 1fr; 
+        padding: 1.5rem; 
+        gap: 30px;
+  }
+  .profile-left {
+        width: 100%;
+        position: relative; 
+        top: 0;
+        text-align: center;
+  }
+  .avatar-wrap {
+        width: 180px; 
+        height: 180px;
+        margin: 0 auto 1.5rem; 
+  }
+  .personal-quick p {
+        text-align: center;
+  }
+  .profile-detail-section h3 {
+        text-align: left; 
+  }
+  .skill-badges {
+        /* Pindah badge ke tengah di mobile */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+  
   .hero-right {
     will-change: auto;
     opacity: 1 !important;
@@ -477,6 +612,10 @@ body{
     left: 10px; 
     transform: translateX(-50%);
   }
+  /* Pastikan di tampilan mobile juga hanya menampilkan ikon */
+  .footer-links {
+        justify-content: center;
+    }
 }
 
 
@@ -488,34 +627,4 @@ body{
 .glass-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 30px rgba(0,0,0,0.1), var(--glow-soft);
-
-}
-/* === Gaya Baru untuk Ikon Sosial di HERO Section (.social-cta) === */
-.social-cta {
-    display: flex; 
-    gap: 12px; 
-    margin-top: 1.5rem; /* Tambah sedikit jarak dari tombol CTA atas */
-    flex-wrap: wrap; 
-}
-
-.social-cta .glass-btn {
-    /* Mengubah tombol kaca (glass-btn) menjadi ikon persegi yang bersih */
-    padding: 0.8rem; /* Padding lebih besar untuk visual ikon */
-    width: 46px; /* Ukuran tetap untuk ikon */
-    height: 46px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    gap: 0; /* Pastikan tidak ada celah di dalam tombol */
-}
-
-.social-cta .glass-btn i {
-    font-size: 1.4rem; /* Ukuran ikon lebih besar */
-    margin: 0;
-    opacity: 1; /* Pastikan ikon terlihat jelas */
-}
-
-/* Gaya Khusus untuk LinkedIn (Warna Kuning Sementara) */
-.social-cta .linkedin-temp i {
-    color: #FFD700; /* Warna kuning emas (sesuai permintaan) */
 }
