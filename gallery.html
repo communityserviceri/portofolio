@@ -13,7 +13,9 @@
   <div class="background-overlay"></div>
 
   <header id="main-header" class="reveal">
-    <div class="logo">Gallery</div>
+    <div class="logo">
+      <span class="neon-logo">Bima// Nexus</span>
+    </div>
     
     <button id="mobile-menu-toggle" aria-label="Toggle menu" class="theme-btn menu-btn">
         <i class="fas fa-bars"></i>
@@ -29,64 +31,97 @@
         <i class="fas fa-moon"></i>
       </button>
       <div class="mini-profile" title="Profile mini">
-        <img src="assets/foto/profile.jpg" alt="Bima mini" onerror="this.style.opacity=.4">
+        <img src="assets/Foto/profile.jpg" alt="Bima mini" onerror="this.style.opacity=.4">
       </div>
     </div>
   </header>
 
-  <main class="container reveal">
-    <h2 class="reveal-item"><i class="fas fa-image"></i> Sertifikat & Foto</h2>
-    <p class="reveal-item">Tempat ini untuk menyimpan foto diri dan sertifikat. Carousel otomatis dipakai untuk tampilan sertifikat.</p>
+  <main>
+    <section id="gallery" class="hero container reveal">
+        <h1 class="floating-title">Koleksi Sertifikat</h1>
+        <p class="subtitle">Berbagai penghargaan dan pelatihan yang telah saya ikuti. Sentuh gambar untuk melihat detail.</p>
 
-    <div class="carousel reveal-item" id="gallery-carousel">
-      <div class="carousel-track">
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat1.jpg" alt="Sertifikat 1"></div>
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat2.jpg" alt="Sertifikat 2"></div>
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat3.jpg" alt="Sertifikat 3"></div>
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat1.jpg" alt="Sertifikat 4"></div>
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat2.jpg" alt="Sertifikat 5"></div>
-        <div class="carousel-slide"><img src="assets/sertifikat/sertifikat3.jpg" alt="Sertifikat 6"></div>
-      </div>
-      <button class="carousel-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-      <button class="carousel-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-    </div>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-1.jpg" data-title="Pelatihan Java Fundamental">
+                <img src="assets/sertifikat/sertifikat-1.jpg" alt="Sertifikat Pelatihan Java">
+                <div class="overlay">
+                    <span class="item-title"><i class="fas fa-file-alt"></i> Java Fundamental</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
 
-    <h3 class="reveal-item">Thumbnail</h3>
-    <div class="thumb-grid reveal-item">
-      <img src="assets/sertifikat/sertifikat1.jpg" alt="thumb1" class="thumb">
-      <img src="assets/sertifikat/sertifikat2.jpg" alt="thumb2" class="thumb">
-      <img src="assets/sertifikat/sertifikat3.jpg" alt="thumb3" class="thumb">
-    </div>
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-2.jpg" data-title="Kompetensi Internet of Things">
+                <img src="assets/sertifikat/sertifikat-2.jpg" alt="Sertifikat Kompetensi IoT">
+                <div class="overlay">
+                    <span class="item-title"><i class="fas fa-lightbulb"></i> Kompetensi IoT</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
+            
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-3.jpg" data-title="Sertifikasi Jaringan Komputer">
+                <img src="assets/sertifikat/sertifikat-3.jpg" alt="Sertifikat Jaringan">
+                <div class="overlay">
+                    <span class="item-title"><i class="fas fa-network-wired"></i> Jaringan Komputer</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
 
-    <div id="lightbox" class="lightbox" aria-hidden="true">
-      <div class="lightbox-inner">
-        <button class="close-lightbox" aria-label="Close">&times;</button>
-        <img src="" alt="preview" id="lightbox-img">
-      </div>
-    </div>
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-4.jpg" data-title="Pelatihan Cloud Computing Dasar">
+                <img src="assets/sertifikat/sertifikat-4.jpg" alt="Sertifikat Cloud">
+                <div class="overlay">
+                    <span class="item-title"><i class="fas fa-cloud"></i> Cloud Computing Dasar</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
+
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-5.jpg" data-title="Sertifikasi Backend Node.js">
+                <img src="assets/sertifikat/sertifikat-5.jpg" alt="Sertifikat Node.js">
+                <div class="overlay">
+                    <span class="item-title"><i class="fab fa-node-js"></i> Backend Node.js</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
+
+            <div class="gallery-item card tilt-3d reveal-item" data-full="assets/sertifikat/sertifikat-6.jpg" data-title="Course Linux System Administration">
+                <img src="assets/sertifikat/sertifikat-6.jpg" alt="Sertifikat Linux">
+                <div class="overlay">
+                    <span class="item-title"><i class="fab fa-linux"></i> Linux System</span>
+                    <span class="item-view"><i class="fas fa-eye"></i> View Detail</span>
+                </div>
+            </div>
+            
+        </div>
+    </section>
   </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="close-lightbox" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+      <img id="lightbox-img" src="" alt="Sertifikat yang diperbesar">
+      <span id="lightbox-caption"></span>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-wave"></div>
     <div class="footer-inner container">
       <div class="footer-left">
         <div class="brand">© 2025 <strong>Bima Adhitya Susilo Putra</strong></div>
+        <div class="tagline">Modern Tech Blue • Neon Glass UI</div>
       </div>
       <div class="footer-right">
-        <div class="footer-links">
-          <a class="footer-cta" href="https://communityserviceri.github.io/myprofile/profile.html" target="_blank" rel="noopener">
-            <i class="fas fa-external-link-alt"></i> Old Portfolio
-          </a>
-          <a class="footer-cta" href="mailto:bimaasp16@gmail.com">
-            <i class="fas fa-envelope"></i> Email Saya
-          </a>
+        <div class="footer-links footer-social-icons">
+          <a class="footer-cta" href="#" target="_blank" rel="noopener" aria-label="Ikon Linux"><i class="fab fa-linux"></i></a>
+          <a class="footer-cta" href="#" target="_blank" rel="noopener" aria-label="Ikon Windows"><i class="fab fa-windows"></i></a>
+          <a class="footer-cta" href="https://www.instagram.com/hiro.esc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="footer-cta" href="https://www.facebook.com/bima.adhitya1/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a class="footer-cta linkedin-temp" href="https://www.linkedin.com/in/hiro-undefined-b9a1b6333/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 </body>
-
 </html>
