@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const subtitleEl = document.getElementById('typing-subtitle');
   if (subtitleEl) {
     const roles = [
-      "IT Support Specialist — PT. Zeppelin",
+      "IT Support Specialist — Zeppelin",
       "Embedded Systems Enthusiast",
       "IoT Developer",
       "Android & Firebase"
@@ -303,5 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('img').forEach(img => {
     if (!img.getAttribute('loading')) img.setAttribute('loading','lazy');
   });
+
 
 });
