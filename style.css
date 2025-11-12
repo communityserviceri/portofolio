@@ -1,6 +1,6 @@
 /* =========================
-   Upgrade: Modern Tech Blue Theme
-   Kreator: Hiro (v8 - Contact Layout Fix)
+   Upgrade: Modern Tech Blue Theme (v10 - Mobile Simplicity Fix)
+   Kreator: Hiro
    ========================= */
 
 :root {
@@ -10,7 +10,7 @@
   --color-crust: #10141f;    /* Latar paling gelap (Hampir hitam) */
   --color-lavender: #FFFFFF; /* Teks judul (Putih bersih) */
   
-  /* Aksen BARU (Mengganti Ungu & Hijau) */
+  /* Aksen BARU */
   --color-mauve: #00A9FF;   /* Aksen Utama (Biru Terang) */
   --color-accent: #38BDF8;  /* Aksen Sekunder (Biru Langit) */
   
@@ -20,7 +20,7 @@
   --glass-1: rgba(255, 255, 255, 0.05);
   --glass-2: rgba(255, 255, 255, 0.03);
 
-  /* Glow / Efek Sinar (disesuaikan dengan warna BIRU) */
+  /* Glow / Efek Sinar */
   --glow-strong: 0 0 15px var(--color-mauve);
   --glow-medium: 0 0 8px var(--color-accent);
   --glow-light: 0 0 4px var(--color-accent);
@@ -38,12 +38,12 @@ html.light-mode {
   --color-base: #F8F9FA;
   --color-mantle: #FFFFFF;
   --color-crust: #E9ECEF;
-  --color-lavender: #212529; /* Teks gelap */
+  --color-lavender: #212529; 
   
-  --color-mauve: #007bff;   /* Aksen Biru */
-  --color-accent: #17A2B8;  /* Aksen Biru-Cyan */
+  --color-mauve: #007bff;   
+  --color-accent: #17A2B8;  
   
-  --color-text: #495057;    /* Teks gelap */
+  --color-text: #495057;    
 
   --glass-1: rgba(0, 0, 0, 0.03);
   --glass-2: rgba(0, 0, 0, 0.01);
@@ -141,11 +141,7 @@ a:hover {
 }
 
 body.index-page .page-fade-overlay {
-  opacity: 1;
-}
-
-body.index-page .page-fade-overlay {
-  opacity: 0;
+  opacity: 0; 
 }
 
 /* Header & Navigation */
@@ -322,7 +318,7 @@ body.index-page .page-fade-overlay {
 }
 
 #typing-subtitle {
-  min-height: 1.5em; /* Menjaga tinggi agar tidak meloncat saat mengetik */
+  min-height: 1.5em; 
   display: inline-block;
 }
 
@@ -636,7 +632,7 @@ body.index-page .page-fade-overlay {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
-    display: none; /* Awalnya disembunyikan */
+    display: none;
     justify-content: center;
     align-items: center;
     opacity: 0;
@@ -655,6 +651,10 @@ body.index-page .page-fade-overlay {
     padding: 1rem;
     border-radius: 12px;
     box-shadow: var(--shadow-lg), var(--glow-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #lightbox-img {
@@ -662,6 +662,17 @@ body.index-page .page-fade-overlay {
     max-width: 100%;
     max-height: 80vh; 
     border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Gaya Khusus untuk PDF iFrame */
+#lightbox-pdf {
+    width: 90vw; 
+    height: 80vh; 
+    max-width: 1000px; 
+    max-height: 800px;
+    border-radius: 8px;
+    background-color: white; 
 }
 
 .close-lightbox {
@@ -694,16 +705,14 @@ body.index-page .page-fade-overlay {
 
 
 /* =======================================================
-   ANIMATION FIX & CORE STYLES (Penting untuk .reveal)
+   ANIMATION & CORE STYLES 
    ======================================================= */
-/* 1. Ini memastikan elemen terlihat secara default sebelum JS berjalan */
 .reveal {
   opacity: 1; 
   transform: none;
   transition: none;
 }
 
-/* 2. Ini adalah state awal (tersembunyi) yang hanya aktif jika JS tersedia */
 .js-animations-active .reveal-item, 
 .js-animations-active .reveal .card, 
 .js-animations-active .reveal .skill, 
@@ -714,9 +723,8 @@ body.index-page .page-fade-overlay {
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
-/* 3. Ini adalah state akhir (terlihat) saat JS mengaktifkannya */
 .js-animations-active .reveal-item.active, 
-.js-animations-active .reveal.active, /* Tambah ini */
+.js-animations-active .reveal.active, 
 .js-animations-active .reveal .card.active, 
 .js-animations-active .reveal .skill.active, 
 .js-animations-active .reveal .timeline-card.active, 
@@ -727,7 +735,7 @@ body.index-page .page-fade-overlay {
 
 
 /* =======================================================
-   CAROUSEL (GALLERY.HTML) STYLES - Diperlukan untuk JS lama
+   CAROUSEL (GALLERY.HTML) STYLES
    ======================================================= */
 .carousel-container {
     position: relative;
@@ -747,11 +755,11 @@ body.index-page .page-fade-overlay {
 .gallery-item {
     min-width: 100%;
     flex-shrink: 0;
-    height: 450px; /* Tinggi tetap */
+    height: 450px; 
     position: relative;
     cursor: pointer;
-    border: none; /* Hilangkan border card */
-    padding: 0; /* Hilangkan padding card */
+    border: none; 
+    padding: 0; 
     background: transparent;
     transition: transform 0.3s ease;
 }
@@ -814,11 +822,23 @@ body.index-page .page-fade-overlay {
     right: 10px;
 }
 
-/* =========================
-   Responsive Adjustments
-   ========================= */
+/* =======================================================
+   Responsive Adjustments (Mobile Simplicity FIX)
+   ======================================================= */
 
 @media (max-width: 1024px) {
+  /* Umum */
+  .container {
+    padding: 1.5rem 0;
+  }
+  .floating-title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  /* Layout Dasar */
   .hero {
     flex-direction: column;
     padding-top: 3rem;
@@ -843,10 +863,32 @@ body.index-page .page-fade-overlay {
   .profile-avatar-wrap {
       margin-bottom: 2rem;
   }
+  
+  /* Hilangkan efek 3D di mobile agar lebih ringan */
+  .tilt-3d:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* FIX: Lightbox di Tablet */
+  #lightbox-pdf {
+      width: 95vw;
+      height: 90vh;
+  }
 }
 
 @media (max-width: 768px) {
-  /* Header */
+  /* Header & Navigasi (Disederhanakan) */
+  #main-header {
+      padding: 0.8rem 1rem;
+  }
+  .logo {
+      font-size: 1.2rem;
+  }
+  .mini-profile img {
+      width: 35px;
+      height: 35px;
+  }
   #main-header nav {
     display: none; 
     flex-direction: column;
@@ -854,28 +896,30 @@ body.index-page .page-fade-overlay {
     order: 3; 
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.3s ease;
+    transition: all 0.4s ease-in-out; /* Transisi untuk buka/tutup */
     background: var(--glass-1);
     border-radius: 0 0 12px 12px;
-    margin-top: 1rem; 
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 9;
+    margin-top: 0.5rem; 
+    box-shadow: var(--shadow-sm);
   }
   #main-header nav.open {
     display: flex;
     max-height: 500px; 
     padding: 1rem 0;
-    box-shadow: var(--shadow-sm);
+    opacity: 1;
   }
   #main-header nav a {
     margin: 0.5rem 1.5rem; 
-    margin-left: 1.5rem; /* override margin-left: 2rem */
     text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--glass-2); /* Garis pemisah antar menu */
   }
-  #main-header nav a:hover::after {
-    transform: scaleX(0.5); /* Ubah menjadi lebih kecil */
+  #main-header nav a:last-child {
+      border-bottom: none;
+  }
+  #main-header nav a::after {
+    bottom: -2px; 
+    height: 1px;
   }
   #mobile-menu-toggle {
     display: block;
@@ -886,22 +930,24 @@ body.index-page .page-fade-overlay {
     order: 1;
   }
   
-  /* Halaman Utama */
+  /* Halaman Umum */
   .floating-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
 
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  /* Timeline Mobile */
+  /* Timeline Mobile (Penyederhanaan Ekstrem) */
   .zigzag-timeline-container::after {
-    left: 10px; /* Garis pindah ke kiri */
+    left: 10px; 
   }
   .timeline-item {
     width: 100%;
@@ -915,17 +961,61 @@ body.index-page .page-fade-overlay {
     left: 3px;
     right: auto;
     margin-left: 0;
+    width: 15px; /* Lingkaran lebih kecil */
+    height: 15px;
+    border-width: 3px;
+    top: 18px;
+  }
+  .timeline-card {
+      padding: 15px;
+  }
+  .timeline-card h4 {
+      font-size: 1.1rem;
   }
   .left-item .timeline-card::before, .right-item .timeline-card::before {
-    left: 20px;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent var(--color-mantle) transparent transparent;
+    display: none; /* Hilangkan panah di mobile agar lebih bersih */
   }
-  .right-item .timeline-card::before {
-    left: 20px;
+
+
+  /* Carousel Gallery Mobile (Lebih Tinggi dan Rapi) */
+  .carousel-container {
+      margin: 1.5rem auto 3rem;
+      border-radius: 8px;
+  }
+  .gallery-item {
+      height: 400px; /* Dipertinggi sedikit agar tidak terlihat terlalu kecil */
+  }
+  .gallery-item .overlay {
+      padding: 0.8rem;
+  }
+  .gallery-item .item-title {
+      font-size: 1rem;
+  }
+  .carousel-nav {
+      font-size: 1rem;
+      padding: 0.5rem 0.3rem;
+  }
+
+  /* Lightbox di Ponsel */
+  .lightbox-inner {
+      padding: 0.5rem;
+  }
+  #lightbox-pdf {
+      width: 98vw;
+      height: 90vh;
+  }
+  .close-lightbox {
+      top: -10px; 
+      right: -10px;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
   }
 
   /* Footer */
+  .site-footer {
+    padding-top: 1rem;
+  }
   .footer-inner {
     flex-direction: column;
     text-align: center;
@@ -933,11 +1023,7 @@ body.index-page .page-fade-overlay {
   .footer-left {
     margin-bottom: 1rem;
   }
-  .footer-links a {
-    margin: 0 0.5rem;
-  }
   .footer-social-icons .footer-cta {
     margin: 0 0.8rem;
   }
 }
-
